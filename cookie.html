@@ -11,39 +11,71 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/cookie.css">
-    <script src="js/cookie.js"></script>
+    <link rel="stylesheet" href="css/cookie.css" />
   </head>
   <body>
     <div class="container">
-        <h3 style="text-align: center; padding-top: 50px;">
-            JS Cookie
-            <small class="text-muted">with local data storage</small>
-        </h3>
-        <br>
-        <table class="table table-bordered table-striped table-dark table-hover">
-            <caption>List of Cookies</caption>
-            <thead class="thead-light text-center">
-                <tr>
-                    <th width="60%">Check list</th>
-                    <th>Click</th>
-                </tr>
-            </thead>
-            <tbody class="text-center">
-                <tr>
-                    <td class="align-middle">쿠키 확인하기</td>
-                    <td><button onclick="getCookie();">get Cookie</button></td>
-                </tr>
-                <tr>
-                    <td class="align-middle">쿠키 생성하기</td>
-                    <td><button onclick="setCookie();">set Cookie</button></td>
-                </tr>
-                <tr>
-                    <td class="align-middle">쿠키 삭제하기</td>
-                    <td><button onclick="delCookie();">del Cookie</button></td>
-                </tr>
-            </tbody>
-        </table>
+      <h3 style="text-align: center; padding-top: 50px">
+        JS Cookie
+        <small class="text-muted">with local data storage</small>
+      </h3>
+      <br />
+      <table class="table table-bordered table-striped table-dark table-hover">
+        <caption>
+          List of Cookies
+        </caption>
+        <thead class="thead-light text-center">
+          <tr>
+            <th width="60%">Check list</th>
+            <th>Click</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr>
+            <td class="align-middle">쿠키 확인하기</td>
+            <td><button onclick="getCookie();">get Cookie</button></td>
+          </tr>
+          <tr>
+            <form id="form">
+              <td class="align-middle">
+                <input
+                  type="text"
+                  name="cname"
+                  value=""
+                  id="cname"
+                  placeholder="cname"
+                  required
+                />
+                <input
+                  type="text"
+                  name="cvalue"
+                  value=""
+                  id="cvalue"
+                  placeholder="cvalue"
+                />
+                <input
+                  type="text"
+                  name="cexpire"
+                  value=""
+                  id="cexpire"
+                  placeholder="cexpire"
+                  required
+                />
+              </td>
+              <td><button type="submit">set Cookie</button></td>
+            </form>
+          </tr>
+          <tr>
+            <td class="align-middle">쿠키 삭제하기</td>
+            <td><button onclick="delCookie('userid');">del Cookie</button></td>
+          </tr>
+          <tr>
+            <td class="align-middle">쿠키 전체삭제</td>
+            <td><button onclick="allDelCookie();">all Del Cookie</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+    <script src="js/cookie.js"></script>
   </body>
 </html>
