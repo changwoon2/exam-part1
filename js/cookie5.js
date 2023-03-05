@@ -64,3 +64,62 @@ function allDelCookies() {
   });
   alert("쿠키가 전체 삭제되어 입니다");
 }
+
+// [8]userGetCookie 함수만들기 - 일반적인 for 반복문으로 순회하면서 처리
+console.clear();
+console.log(document.cookie);
+
+//쿠키 읽기
+const userGetCookie = function (cname) {
+  let name = cname + "=";
+  console.log(name);
+  let allCookie = decodeURIComponent(document.cookie).split(";");
+  console.log(allCookie);
+  let cval = [];
+  for (let i = 0; i < allCookie.length; i++) {
+    console.log(allCookie[i].trim().indexOf(name));
+    if (allCookie[i].trim().indexOf(name) == 0) {
+      cval = allCookie[i].trim().split("=");
+      console.log(cval);
+      ["userid", "superman1004"];
+      console.log(cval[1]);
+      console.log(cval.length);
+    }
+    return cval.length > 0 ? cval[1] : "nothing";
+  }
+};
+console.log("userGetCookie 함수로 리턴된값은 = " + userGetCookie("userid"));
+
+const oneGetCookie = function (cname) {
+  let name = cname + "=";
+  let allCookie = decodeURIComponent(document.cookie).split(";");
+
+  let cval = [];
+  for (let i = 0; i < allCookie.length; i++) {
+    if (allCookie[i].trim().indexOf(name) == 0) {
+      cval = allCookie[i].trim().split("=");
+    }
+  }
+  return cval.length > 0 ? cval[1] : "no result";
+};
+console.clear();
+console.log("oneGetCookie 함수로 리턴되는 값은 = " + oneGetCookie("cname"));
+
+console.clear();
+console.log(document.cookie);
+
+const userGetCookie2 = function (cname) {
+  let cookie = {};
+  document.cookie.split(";").forEach(function (el) {
+    // el = el.trim(); 위에서 공백 제거를 처리하지 않고 여기서 한다면
+    // console.log(el);
+    let [k, v] = el.split("=");
+    // console.log(k);
+    console.log(k.trim());
+    cookie[k.trim()] = v;
+    console.log(cookie);
+  });
+  return cookie[cname] != undefined ? cookie[cname] : "no result";
+};
+
+console.log("userGetCookie2 함수로 리턴된 값은 = " + userGetCookie2("userid"));
