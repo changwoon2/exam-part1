@@ -123,3 +123,28 @@ const userGetCookie2 = function (cname) {
 };
 
 console.log("userGetCookie2 함수로 리턴된 값은 = " + userGetCookie2("userid"));
+
+// [9] foreEach 메서드를 이용한 userGetCookie2 함수만들기
+
+console.clear();
+console.log(document.cookie);
+
+// 1 객체 변수 선언
+const userGetCookie3 = function (cname) {
+  let cookie = {};
+  // 2반복처리 - forEach
+  document.cookie.split(";").forEach(function (el) {
+    // 할일처리
+    // el = el.trim();
+    // console.log(el);
+    let [k, v] = el.split("=");
+    // console.log(k);
+    console.log(k.trim());
+    cookie[k.trim()] = v;
+    console.log(cookie);
+  });
+  // return cookie["cname"];
+  return cookie[cname] != undefined ? cookie[cname] : "no result";
+};
+
+console.log("userGetCookie3 = " + userGetCookie3("userid"));
