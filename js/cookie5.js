@@ -148,3 +148,35 @@ const userGetCookie3 = function (cname) {
 };
 
 console.log("userGetCookie3 = " + userGetCookie3("userid"));
+
+// [10] es6 버전으로 userGetCookie4
+console.clear();
+console.log(document.cookie);
+
+const userGetCookie4 = function (cname) {
+  cname = cname + "=";
+  const str = document.cookie;
+  const isCookieldx = str.indexOf(cname);
+  console.log(isCookieldx);
+  let result = "no result";
+  if (isCookieldx >= 0) {
+    result = document.cookie
+      .split(";")
+      .find((item) => item.startsWith(cname))
+      .split("=")[1];
+  }
+  return result;
+  ``;
+};
+
+console.log("userGetCookie3 함수로 리턴된 값은 = " + userGetCookie3("cname"));
+
+function showCval(cname) {
+  const rst = document.getElementById("cval");
+  rst.value = userGetCookie3(cname);
+}
+
+function clearCval() {
+  const rst = document.getElementById("cval");
+  rst.value = "";
+}
