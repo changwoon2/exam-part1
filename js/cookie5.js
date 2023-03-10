@@ -180,3 +180,31 @@ function clearCval() {
   const rst = document.getElementById("cval");
   rst.value = "";
 }
+
+console.clear();
+const str = "큰그림";
+
+console.log(str.startsWith("빅토르"));
+console.log(str.startsWith("빅토르"));
+console.log(str.startsWith("빅토르", 10));
+console.log(str.startsWith("간장"));
+console.log(str.startsWith("강공장장", 11));
+
+console.clear();
+const ar = "dog=5; cat=7; hippo=9; lion=4; tiger=2";
+console.log(typeof ar);
+
+const ar2 = ar.split(";");
+console.log(ar2);
+
+const ar3 = ar2.find((item) => item.startsWith("hippo=")); // 주어진 조건의 함수를 만족하는 첫 번째 요소의 값을 반환. 그런게 없다면 undefined 반환.
+console.log(ar3);
+
+const ar4 = ar3.split("=");
+console.log(ar4); // [ "hippo", "9" ]
+
+console.log(ar4[1]);
+console.log(ar3.split("=")[1]);
+
+const ar5 = ar.findIndex((item) => item.startsWith("cat="));
+console.log(ar5);
