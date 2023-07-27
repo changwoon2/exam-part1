@@ -14,6 +14,7 @@ button:hover {
 }
 
 .popup {
+  display: none;
 }
 
 .popup::before {
@@ -63,8 +64,8 @@ button:hover {
 .popup .banner .btnClose {
   color: #ccc;
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  top: -80px;
+  right: 25px;
   text-decoration: none;
   padding: 2px 0;
   text-transform: uppercase;
@@ -75,14 +76,19 @@ button:hover {
   font-weight: 900;
   text-decoration: none;
   color: skyblue;
+  position: absolute;
+  top: -35px;
+  left: 25px;
 }
 
 .popup .banner .btnConcealWindowToday::before {
   content: "😌";
+  padding: 0px 5px;
 }
 
 .popup .banner .btnClose::before {
   content: "😎";
+  font-size: 350%;
 }
 
 .body::first-letter {
